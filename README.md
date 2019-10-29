@@ -10,8 +10,8 @@
 
 ### About Glide Bitmap Pool
 
-Glide Bitmap Pool is a memory management library for reusing the bitmap memory. As it reuses bitmap memory , so 
-no more GC calling again and again , hence smooth running application. It uses inBitmap while decoding the bitmap
+Glide Bitmap Pool is a memory management library for reusing the bitmap memory. As it reuses bitmap memory, so 
+no more GC calling again and again, hence smooth running application. It uses inBitmap while decoding the bitmap
 on the supported android versions. All the version use-cases has been handled to optimize it better.
 
 * [Glide](https://github.com/bumptech/glide) , [Fresco](https://github.com/facebook/fresco) and [Fast Android Networking](https://github.com/amitshekhariitbhu/Fast-Android-Networking) uses Bitmap Pool Concept to 
@@ -19,20 +19,20 @@ load images efficiently.
 
 ### Why use this library ?
 
-An Image heavy Application decodes many images , so there will be continuous allocation and deallocation 
+An Image heavy Application decodes many images, so there will be continuous allocation and deallocation 
 of memory in application , and that results in very frequent calling of GC(Garbage Collector). And 
-finally because of very frequent calling of GC , the application UI freezes.
+finally because of very frequent calling of GC, the application UI freezes.
 Use Bitmap pool to avoid continuous allocation and deallocation of memory in application 
 and reduce GC overhead that will result in smooth running application.
 Suppose we have to load few bitmap in Android Application.
-When we load bitmapOne , it will allocate the memory for bitmapOne.
-Then if we don’t need bitmapOne , do not recycle bitmap (as if you recycle, it will make GC to be called) , 
+When we load bitmapOne, it will allocate the memory for bitmapOne.
+Then if we don’t need bitmapOne, do not recycle bitmap (as if you recycle, it will make GC to be called) , 
 so use this bitmapOne as an inBitmap for bitmapTwo so that , the same memory can be reused for bitmapTwo.
 In this way , we can avoid continuous allocation and deallocation of memory in application and reduce GC overhead.
-But the problem is that there are few restrictions as android version less than Honeycomb does not supports it , 
-few android version less than Kitkat only when we use inSampleSize = 1 , above that it supports 
+But the problem is that there are few restrictions as android version less than Honeycomb(API 3.0 - 3.2) does not support it, 
+few android version less than Kitkat(API 4.4 - 4.4.4) only when we use inSampleSize = 1, above that it supports 
 completely and few other issues.
-So , all these types of cases are handled in this library
+So, all these types of cases are handled in this library
 
 * [Refer this blog for detailed explanation](https://blog.mindorks.com/how-to-use-bitmap-pool-in-android-56c71a55533c)
 
